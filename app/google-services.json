@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "885896346099",
+    "project_id": "anotherday-9fc28",
+    "storage_bucket": "anotherday-9fc28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:885896346099:android:59509da23840fab484ba86",
+        "android_client_info": {
+          "package_name": "com.plannd.anotherday"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "885896346099-aqjcmjd2v9u0nhiv97425gulvp2udkbp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.plannd.anotherday",
+            "certificate_hash": "216d6fa2105a86dd45567063eca0cb75cdba62b3"
+          }
+        },
+        {
+          "client_id": "885896346099-sdi6kmoj7teh5uheno57m84mtdlklg40.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDxO9SakFgsc91UyhnWdbwdG_Sbw4GYCds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "885896346099-sdi6kmoj7teh5uheno57m84mtdlklg40.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
