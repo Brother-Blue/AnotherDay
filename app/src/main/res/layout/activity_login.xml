@@ -7,19 +7,14 @@
     android:background="@drawable/another_day"
     tools:context=".LoginActivity">
 
-    <Button
-        android:id="@+id/btnSignInWithGoogle"
-        android:layout_width="wrap_content"
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btnGoogleSignIn"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/sign_in_with_google"
-        app:icon="@drawable/ic_google_icon"
-        app:iconTint=""
-        style="@style/Widget.MaterialComponents.Button.Icon"
-        app:backgroundTint="@color/white"
-        android:textColor="@color/black"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

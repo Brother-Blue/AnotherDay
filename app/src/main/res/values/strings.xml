@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Another Day</string>
-    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="sign_in_with_google">Continue with Google</string>
 </resources>
