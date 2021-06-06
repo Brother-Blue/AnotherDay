@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -38,6 +39,10 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var _btnGoogleSignIn: Button
     private lateinit var _btnEmailSignIn: Button
 
+    // Text fields
+    private lateinit var _editTextSignInEmail: EditText
+    private lateinit var _editTextSignInPassword: EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -62,9 +67,16 @@ class LoginActivity : AppCompatActivity() {
         _btnGoogleSignIn = findViewById(R.id.btnGoogleSignIn)
         _btnEmailSignIn = findViewById(R.id.btnEmailSignIn)
 
+        _editTextSignInEmail = findViewById(R.id.signInEmailEditText)
+        _editTextSignInPassword = findViewById(R.id.signInPasswordEditText)
+
         // Set listeners
         _btnGoogleSignIn.setOnClickListener {
             signInWithGoogle()
+        }
+
+        _btnEmailSignIn.setOnClickListener {
+            signInWithEmail()
         }
     }
 
@@ -96,6 +108,46 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
+    }
+
+    // Email sign in
+    private fun signInWithEmail() {
+        // Get email and password from text fields
+        val email = _editTextSignInEmail.text.toString()
+        val password = _editTextSignInPassword.text.toString()
+
+        // Try to sign in with provided credentials
+        _firebaseAuth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                // On success, the user is registered and redirected to main activity
+                if (task.isSuccessful) {
+                    Log.d(TAG, "Sign in success (email)")
+                    _user = _firebaseAuth.currentUser
+                    updateUI(_user!!)
+                } else {
+                    // On failure, we attempt to register the user credentials
+                    Log.w(TAG, "Sign in failed... attempting to register email.")
+                    registerEmail(email, password)
+                }
+            }
+    }
+
+    // Register email/password with Firebase
+    private fun registerEmail(email: String, password: String) {
+        // Attempt to create a new Firebase user
+        _firebaseAuth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                // On success, the user is registered and redirected to the main activity
+                if (task.isSuccessful) {
+                    Log.d(TAG, "User email registered")
+                    _user = _firebaseAuth.currentUser
+                    updateUI(_user!!)
+                } else {
+                    // If failure the user is notified that the authentication is denied
+                    Log.w(TAG, "User authentication failed (email)")
+                    Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_LONG).show()
+                }
+            }
     }
 
     // Google sign in button
