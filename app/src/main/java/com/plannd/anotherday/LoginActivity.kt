@@ -1,12 +1,18 @@
 package com.plannd.anotherday
 
+import android.app.Dialog
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.DialogFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -42,6 +48,10 @@ class LoginActivity : AppCompatActivity() {
     // Text fields
     private lateinit var _editTextSignInEmail: EditText
     private lateinit var _editTextSignInPassword: EditText
+    private lateinit var _textFieldForgotPassword: TextView
+
+    // Dialogs
+    private lateinit var _dialogResetPassword: Dialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,6 +79,7 @@ class LoginActivity : AppCompatActivity() {
 
         _editTextSignInEmail = findViewById(R.id.signInEmailEditText)
         _editTextSignInPassword = findViewById(R.id.signInPasswordEditText)
+        _textFieldForgotPassword = findViewById(R.id.textRecoverPassword)
 
         // Set listeners
         _btnGoogleSignIn.setOnClickListener {
@@ -77,6 +88,10 @@ class LoginActivity : AppCompatActivity() {
 
         _btnEmailSignIn.setOnClickListener {
             signInWithEmail()
+        }
+
+        _textFieldForgotPassword.setOnClickListener {
+            showEmailDialog()
         }
     }
 
@@ -100,6 +115,43 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+
+    // Shows email dialog for password reset
+    private fun showEmailDialog() {
+        // TODO: Make this into something more OOP and clean in the future
+        val builder = AlertDialog.Builder(this) // Dialog builder
+        val inflater = LayoutInflater.from(this) // XML Inflater
+        val dialogView = inflater.inflate(R.layout.dialog_password_reset, null) // Create the view
+        val editTextResetEmail = dialogView.findViewById<EditText>(R.id.editTextResetPassword) // Get the email text box
+        var email: String // Init string placeholder
+        builder.setView(dialogView) // Set the dialog view to our custom view
+        // Set the "ok" on click event
+        builder.setPositiveButton(R.string.send_reset_email) { _, _ ->
+                email = editTextResetEmail.text.toString()
+                sendResetEmail(email)
+            }
+        // Assign the dialog to what was built
+        _dialogResetPassword = builder.create()
+        // Show the dialog
+        _dialogResetPassword.show()
+    }
+
+    // Sends a reset email
+    private fun sendResetEmail(email: String) {
+        _firebaseAuth.sendPasswordResetEmail(email)
+            .addOnCompleteListener(this) { task ->
+                // On success it says it was sent
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "Reset email sent", Toast.LENGTH_LONG).show()
+                } else {
+                    // On failure it says it was not sent
+                    Toast.makeText(this, "Reset email could not be sent", Toast.LENGTH_LONG).show()
+                }
+                // Close the dialog
+                _dialogResetPassword.dismiss()
+            }
+    }
+
 
     // Update the UI, if the user is not null, move to main activity
     // And finish the login activity
