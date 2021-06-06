@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="another_day_primary_color">#143093</color>
+    <color name="another_day_secondary_color">#73AAFF</color>
+    <color name="another_day_background_color">#803FAC</color>
+    <color name="another_day_error_color">#FB656A</color>
+    <color name="another_day_primary_variant_color">#FF0187</color>
+    <color name="another_day_secondary_variant_color">#FF000000</color>
+    <color name="another_day_color_on_primary">#FFFFFFFF</color>
+    <color name="another_day_color_on_secondary">#FFFFFFFF</color>
+    <color name="another_day_color_on_background">#FFFFFFFF</color>
+    <color name="another_day_color_on_error">#FFFFFFFF</color>
+    <color name="another_day_color_on_surface">#FFFFFFFF</color>
+    <color name="another_day_surface_color">#FFFFFFFF</color>
+    <color name="soft_white">#FBFAF5</color>
+    <color name="soft_black">#0E1111</color>
 </resources>
