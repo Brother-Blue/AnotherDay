@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="another_day_primary_color">#143093FC</color>
-    <color name="another_day_secondary_color">#73AAFFEE</color>
-    <color name="another_day_background_color">#803FACB3</color>
-    <color name="another_day_error_color">#FB656AC5</color>
-    <color name="another_day_primary_variant_color">#FF018786</color>
+    <color name="another_day_primary_color">#143093</color>
+    <color name="another_day_secondary_color">#73AAFF</color>
+    <color name="another_day_background_color">#803FAC</color>
+    <color name="another_day_error_color">#FB656A</color>
+    <color name="another_day_primary_variant_color">#FF0187</color>
     <color name="another_day_secondary_variant_color">#FF000000</color>
     <color name="another_day_color_on_primary">#FFFFFFFF</color>
     <color name="another_day_color_on_secondary">#FFFFFFFF</color>
