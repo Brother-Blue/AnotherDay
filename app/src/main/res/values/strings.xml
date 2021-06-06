@@ -6,4 +6,5 @@
     <string name="email_label">Email</string>
     <string name="password_label">Password</string>
     <string name="separator_or">OR</string>
+    <string name="forgot_password">Forgot password?</string>
 </resources>

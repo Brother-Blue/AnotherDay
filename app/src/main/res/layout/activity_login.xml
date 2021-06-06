@@ -69,8 +69,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/emailSignInContainer"
-        android:layout_width="339dp"
-        android:layout_height="262dp"
+        android:layout_width="340dp"
+        android:layout_height="284dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -87,10 +87,10 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
             android:hint="@string/email_label"
-            app:startIconDrawable="@drawable/ic_email_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconDrawable="@drawable/ic_email_24">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/signInEmailEditText"
@@ -109,10 +109,10 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:hint="@string/password_label"
-            app:startIconDrawable="@drawable/ic_secure_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/signInEmailLayout">
+            app:layout_constraintTop_toBottomOf="@+id/signInEmailLayout"
+            app:startIconDrawable="@drawable/ic_secure_24">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/signInPasswordEditText"
@@ -125,20 +125,36 @@
         <Button
             android:id="@+id/btnEmailSignIn"
             style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="0dp"
+            android:layout_width="308dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:paddingVertical="10dp"
             android:text="@string/sign_in_with_email"
             app:backgroundTint="@color/another_day_secondary_color"
             app:icon="@drawable/ic_email_24"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/textRecoverPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signInPasswordLayout"
             app:strokeColor="@color/soft_white"
             app:strokeWidth="2dp" />
+
+        <TextView
+            android:id="@+id/textRecoverPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/forgot_password"
+            android:textSize="16sp"
+            android:textColor="@color/soft_white"
+            android:shadowRadius="2"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowColor="@color/soft_black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
