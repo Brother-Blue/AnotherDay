@@ -96,10 +96,8 @@
                 android:id="@+id/signInEmailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:shadowColor="@color/soft_black"
-                android:shadowDx="2"
-                android:shadowDy="2"
-                android:shadowRadius="2" />
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -120,10 +118,8 @@
                 android:id="@+id/signInPasswordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:shadowColor="@color/soft_black"
-                android:shadowDx="2"
-                android:shadowDy="2"
-                android:shadowRadius="2" />
+                android:imeOptions="actionDone"
+                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
