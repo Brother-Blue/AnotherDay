@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/primaryNavGroup"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/navMyTasks"
+            android:icon="@drawable/ic_task_24"
+            android:title="@string/my_tasks"
+            android:contentDescription="@string/my_tasks_desc"/>
+        <item
+            android:id="@+id/navMyLists"
+            android:icon="@drawable/ic_list_24"
+            android:title="@string/my_lists"
+            android:contentDescription="@string/my_lists_desc"/>
+        <item
+            android:id="@+id/navMyProjects"
+            android:icon="@drawable/ic_rocket_24"
+            android:title="@string/my_projects"
+            android:contentDescription="@string/my_projects_desc"/>
+    </group>
+</menu>

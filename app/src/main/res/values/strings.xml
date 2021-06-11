@@ -15,4 +15,10 @@
     <string name="my_projects_desc">Navigation link to my projects</string>
     <string name="more">Show more</string>
     <string name="more_desc">Show more</string>
+    <string name="my_tasks">My Tasks</string>
+    <string name="my_tasks_desc">Navigation link to my tasks</string>
+    <string name="my_lists">My Lists</string>
+    <string name="my_lists_desc">Navigation link to my lists</string>
+    <string name="name_placeholder">Another Day User</string>
+    <string name="email_placeholder">user@anotherday.se</string>
 </resources>
