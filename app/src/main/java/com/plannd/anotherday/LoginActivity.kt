@@ -125,10 +125,14 @@ class LoginActivity : AppCompatActivity() {
         val editTextResetEmail = dialogView.findViewById<EditText>(R.id.editTextResetPassword) // Get the email text box
         var email: String // Init string placeholder
         builder.setView(dialogView) // Set the dialog view to our custom view
-        // Set the "ok" on click event
-        builder.setPositiveButton(R.string.send_reset_email) { _, _ ->
+            .setPositiveButton(R.string.send) { _, _ ->
+                // Handle send email
                 email = editTextResetEmail.text.toString()
                 sendResetEmail(email)
+            }
+            .setNegativeButton(R.string.cancel) { _, _ ->
+                // Handle cancel
+                _dialogResetPassword.dismiss()
             }
         // Assign the dialog to what was built
         _dialogResetPassword = builder.create()
