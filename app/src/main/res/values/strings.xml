@@ -11,4 +11,8 @@
     <string name="reset_password">Reset password</string>
     <string name="cancel">cancel</string>
     <string name="send">send</string>
+    <string name="my_projects">My Projects</string>
+    <string name="my_projects_desc">Navigation link to my projects</string>
+    <string name="more">Show more</string>
+    <string name="more_desc">Show more</string>
 </resources>
