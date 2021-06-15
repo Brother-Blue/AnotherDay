@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     // Nav drawer
     private lateinit var _layoutDrawer: DrawerLayout
     private lateinit var _navigationView: NavigationView
+    private lateinit var _btnSignOut: Button
 
     // Called when activity is created
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,10 +38,15 @@ class MainActivity : AppCompatActivity() {
         _topAppBar = findViewById(R.id.appBarTop)
         _layoutDrawer = findViewById(R.id.layoutDrawer)
         _navigationView = findViewById(R.id.navigationView)
+        _btnSignOut = findViewById(R.id.btnSignOut)
 
         // Set listeners
         _topAppBar.setNavigationOnClickListener {
             _layoutDrawer.openDrawer(Gravity.LEFT)
+        }
+
+        _btnSignOut.setOnClickListener {
+            signOut()
         }
 
         // Navigation drawer on click

@@ -43,7 +43,17 @@
         android:layout_gravity="start"
         app:menu="@menu/navigation_drawer"
         app:headerLayout="@layout/navigation_header"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnSignOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="24dp"
+            style="@style/Widget.MaterialComponents.Button"
+            android:text="@string/sign_out"/>
+    </com.google.android.material.navigation.NavigationView>
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
