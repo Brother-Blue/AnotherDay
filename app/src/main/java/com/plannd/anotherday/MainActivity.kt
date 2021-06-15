@@ -3,8 +3,8 @@ package com.plannd.anotherday
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
 import android.widget.Button
+import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.navigation.NavigationView
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         // Set listeners
         _topAppBar.setNavigationOnClickListener {
-            _layoutDrawer.openDrawer(Gravity.LEFT)
+            _layoutDrawer.openDrawer(GravityCompat.START)
         }
 
         _btnSignOut.setOnClickListener {
@@ -61,13 +61,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.navMyLists -> {
                     // If not on My Lists go to my lists
                     if (!item.isChecked) {
-                        // Go to My Lists
+                        startActivity(Intent(this, ListActivity::class.java))
                     }
                 }
                 R.id.navMyProjects -> {
                     // If not on My Projects fo to my projects
                     if (!item.isChecked) {
-                        // Go to My Projects
+                        startActivity(Intent(this, ProjectActivity::class.java))
                     }
                 }
             }
