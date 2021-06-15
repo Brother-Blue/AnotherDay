@@ -61,13 +61,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.navMyLists -> {
                     // If not on My Lists go to my lists
                     if (!item.isChecked) {
-                        // Go to My Lists
+                        startActivity(Intent(this, ListActivity::class.java))
                     }
                 }
                 R.id.navMyProjects -> {
                     // If not on My Projects fo to my projects
                     if (!item.isChecked) {
-                        // Go to My Projects
+                        startActivity(Intent(this, ProjectActivity::class.java))
                     }
                 }
             }
