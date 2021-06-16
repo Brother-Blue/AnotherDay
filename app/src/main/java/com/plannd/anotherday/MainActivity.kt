@@ -7,12 +7,16 @@ import android.widget.Button
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.FragmentContainerView
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.plannd.anotherday.fragments.CreateListFragment
+import com.plannd.anotherday.fragments.MyListsFragment
+import com.plannd.anotherday.fragments.MyTasksFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -55,22 +59,34 @@ class MainActivity : AppCompatActivity() {
             signOut()
         }
 
+        // Inflate initial fragment
+        if (savedInstanceState == null) {
+            supportFragmentManager.commit {
+                add<MyTasksFragment>(_containerFragment.id)
+                setReorderingAllowed(true)
+            }
+        }
+
         // Navigation drawer on click
         _navigationView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navMyTasks -> {
                     // If not on My Tasks go to my tasks
                     if (!item.isChecked) {
-                        startActivity(Intent(this, MainActivity::class.java))
+                        supportFragmentManager.commit {
+                            replace<MyTasksFragment>(_containerFragment.id)
+                            setReorderingAllowed(true)
+                            addToBackStack("MyTasks")
+                        }
                     }
                 }
                 R.id.navMyLists -> {
                     // If not on My Lists open my lists fragment
                     if (!item.isChecked) {
-                        supportFragmentManager.beginTransaction().apply {
-                            replace(_containerFragment.id, CreateListFragment.newInstance())
-                            addToBackStack("CreateList")
-                            commit()
+                        supportFragmentManager.commit {
+                            replace<MyListsFragment>(_containerFragment.id)
+                            setReorderingAllowed(true)
+                            addToBackStack("MyLists")
                         }
                     }
                 }
