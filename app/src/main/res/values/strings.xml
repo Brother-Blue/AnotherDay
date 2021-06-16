@@ -22,4 +22,6 @@
     <string name="name_placeholder">Another Day User</string>
     <string name="email_placeholder">user@anotherday.se</string>
     <string name="sign_out">Sign out</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

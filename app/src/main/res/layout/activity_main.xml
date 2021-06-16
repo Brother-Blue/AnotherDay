@@ -32,6 +32,11 @@
                 style="@style/Widget.MaterialComponents.Toolbar.PrimarySurface"/>
 
         </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <!-- Content go here o3o -->

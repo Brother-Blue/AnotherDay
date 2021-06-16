@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.FragmentContainerView
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
@@ -26,6 +27,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var _navigationView: NavigationView
     private lateinit var _btnSignOut: Button
 
+    // Containers
+    private lateinit var _containerFragment: FragmentContainerView
+
     // Called when activity is created
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         _layoutDrawer = findViewById(R.id.layoutDrawer)
         _navigationView = findViewById(R.id.navigationView)
         _btnSignOut = findViewById(R.id.btnSignOut)
+        _containerFragment = findViewById(R.id.fragmentContainerView)
 
         // Set listeners
         _topAppBar.setNavigationOnClickListener {
