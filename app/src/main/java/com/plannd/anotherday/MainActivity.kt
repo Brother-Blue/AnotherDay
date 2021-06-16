@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.navMyProjects -> {
                     // If not on My Projects fo to my projects
                     if (!item.isChecked) {
-                        startActivity(Intent(this, ProjectActivity::class.java))
+
                     }
                 }
             }
