@@ -118,7 +118,7 @@ class LoginActivity : AppCompatActivity() {
 
     // Shows email dialog for password reset
     private fun showEmailDialog() {
-        // TODO: Make this into something more OOP and clean in the future
+        // TODO: Make this into a DialogFragment in the future as it handles the creation and cleanup
         val builder = AlertDialog.Builder(this) // Dialog builder
         val inflater = LayoutInflater.from(this) // XML Inflater
         val dialogView = inflater.inflate(R.layout.dialog_password_reset, null) // Create the view
