@@ -12,6 +12,7 @@ import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.plannd.anotherday.fragments.CreateListFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -64,9 +65,13 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 R.id.navMyLists -> {
-                    // If not on My Lists go to my lists
+                    // If not on My Lists open my lists fragment
                     if (!item.isChecked) {
-                        startActivity(Intent(this, ListActivity::class.java))
+                        supportFragmentManager.beginTransaction().apply {
+                            replace(_containerFragment.id, CreateListFragment.newInstance())
+                            addToBackStack("CreateList")
+                            commit()
+                        }
                     }
                 }
                 R.id.navMyProjects -> {

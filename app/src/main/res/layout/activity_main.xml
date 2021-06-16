@@ -35,8 +35,9 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainerView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_width="match_parent"
+            android:layout_height="670dp"
+            android:layout_gravity="bottom" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <!-- Content go here o3o -->
